@@ -10,26 +10,15 @@ namespace Alex.Carvalho.NameSpace
         #region public fields
         public string bottleTag;
 
-        public float bottlesCollected;
+        public static float bottlesCollected;
         #endregion
-        // Start is called before the first frame update
-        void Start()
-        {
 
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
-
+        #region Collision/Triggers
         public void OnTriggerStay(Collider other)
         {
             if(other.gameObject.tag == bottleTag && Input.GetKeyDown(KeyCode.Space))
             {
                 Destroy(other.gameObject);
-
                 bottlesCollected += 1;
             }
         }
@@ -41,5 +30,6 @@ namespace Alex.Carvalho.NameSpace
                 Debug.Log("Player_PickUp_Script : OntriggerEnter Collided with Bottle");
             }
         }
+        #endregion
     }
 }
