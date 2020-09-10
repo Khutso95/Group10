@@ -10,6 +10,10 @@ TagManager:
   - Reasource 3
   - DrainReasource
   - FillReasource
+  - CollectReasource
+  - StoreReasource
+  - SpawnReasource
+  - ContainmentCells
   layers:
   - Default
   - TransparentFX

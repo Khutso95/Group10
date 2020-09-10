@@ -8,15 +8,15 @@ namespace Alex.Carvalho
 
     public class Script_P1_Reasource_Entity : MonoBehaviour
     {
-        public float TimeLimit;
-        public float StartTime;
-        public float MaxTime;
+        public float ReasourceAmount;
+        public float StartingAmount;
+        public float MaxAmount;
 
         public bool ResType1 = false;
         public bool ResType2 = false;
         public bool ResType3 = false;
 
-        public bool IsOnSlot;
+        public bool IsOnDrain;
         public bool IsOnRefill;
 
         public string DrainReasourceSlot;
@@ -28,6 +28,9 @@ namespace Alex.Carvalho
         public Image TimeBar;
         public Canvas TimeCanvas;
 
+        //variables for the GM
+        public GameObject object_GameManager;
+
         void Start()
         {
             //Section to determine what type of Resource it is
@@ -37,12 +40,18 @@ namespace Alex.Carvalho
                 Debug.LogError("Script_P1_Reasource_Entity Child object not OfTypeX");
             }
 
-            TimeLimit = StartTime;
+            ReasourceAmount = StartingAmount;
             TimeCanvas = GetComponentInChildren<Canvas>();
             TimeBar = GetComponentInChildren<Image>();
-         
+            object_GameManager = GameObject.FindGameObjectWithTag("GameController");
+
         }
-        
+        void Update()
+        {
+            DetectOnPoint();
+            ReasourceManagement();
+        }
+
         void CheckForErrors()
         {
             if (TimeBar == null) { Debug.LogError("Script_P1_Reasource_Entity: Missing TimeBar reference"); }
@@ -51,17 +60,12 @@ namespace Alex.Carvalho
             if (DrainReasourceSlot == " ") { Debug.LogError("Script_P1_Reasource_Entity: ReasourceSlot feild is empty"); }
           
         }
-        void Update()
-        {
-            DetectOnPoint();
-            ReasourceManagement();
-        }
-
+       
 
         public void DetectOnPoint()
         {
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, 1))
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, 2))
             {
                 Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * hit.distance, Color.red);
                 
@@ -69,18 +73,18 @@ namespace Alex.Carvalho
 
             if(this.transform.parent != null ) //checks if it is has a parent = being moved by the player
             {
-                IsOnSlot = false;
+                IsOnDrain = false;
                 
             }
             else
             {
                 if(hit.transform.tag == DrainReasourceSlot)
                 {
-                    IsOnSlot = true;
+                    IsOnDrain = true;
                 }
                 else
                 {
-                    IsOnSlot = false;
+                    IsOnDrain = false;
                 }
             }
 
@@ -104,31 +108,37 @@ namespace Alex.Carvalho
 
         public void ReasourceManagement()
         {
-            if (TimeLimit >= MaxTime)
+            if (ReasourceAmount >= MaxAmount)
             {
-                TimeLimit = MaxTime;
+                ReasourceAmount = MaxAmount;
+            }
+            if(ReasourceAmount <= 0)
+            {
+                ReasourceAmount = 0;
             }
 
-            if (IsOnSlot)
+            if (IsOnDrain)
             {
-                TimeLimit -= Time.deltaTime;
-
-                float ImageFill = TimeLimit / MaxTime;
+                ReasourceAmount -= Time.deltaTime;
+                float ImageFill = ReasourceAmount / MaxAmount;
                 TimeBar.fillAmount = ImageFill;
-                if (TimeLimit <= 0)
+
+                if (ReasourceAmount > 0)
+                {
+
+                    string childName = this.transform.GetChild(0).name;
+                    object_GameManager.GetComponent<Script_GM_RM>().IncreaseLocalRes(childName);
+                }
+
+                if (ReasourceAmount <= 0)
                 {
                     ObjectDied();
                 }
             }
             else if (IsOnRefill)
             {
-                TimeLimit += Time.deltaTime;
-                float ImageFill = TimeLimit / MaxTime;
-                TimeBar.fillAmount = ImageFill;
-                if(TimeLimit >= 0)
-                {
-                    ObjectLives();
-                }
+                string childName = this.transform.GetChild(0).name;
+                object_GameManager.GetComponent<Script_GM_RM>().CrystalInput(childName);   ///Notifies the GM
             }
             {
                 return;
@@ -136,12 +146,22 @@ namespace Alex.Carvalho
 
         }
 
+        public void RefilCell()
+        {
+
+            ReasourceAmount += Time.deltaTime;
+            float ImageFill = ReasourceAmount / MaxAmount;
+            TimeBar.fillAmount = ImageFill;
+            if (ReasourceAmount > 0)
+            {
+                ObjectLives();
+            }
+        }
+
         public void ObjectDied()
         {
             Material mat = GetComponent<MeshRenderer>().material;
-            mat.color = DeadMat.color;
-
-            
+            mat.color = DeadMat.color;            
         }
 
         public void ObjectLives()
