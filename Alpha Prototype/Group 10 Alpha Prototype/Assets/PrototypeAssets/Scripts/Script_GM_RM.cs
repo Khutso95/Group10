@@ -23,14 +23,17 @@ namespace Alex.Carvalho
         #endregion
 
         #region player 2 variables
+        public bool P2CanShoot;
+        public bool P2CanMove;
         #endregion
 
         #region gameManager Variables;
-        public float ResType_1;
+        public float ResType_1;       //Movement
         public float ResType_1_Max;
-        public float ResType_2;
+        public float ResType_1_DecreaseRate;
+        public float ResType_2;      
         public float ResType_2_Max;
-        public float ResType_3;
+        public float ResType_3;       //Shooting
         public float ResType_3_Max;
 
         public Image Res_1_Image;
@@ -50,25 +53,8 @@ namespace Alex.Carvalho
             CheckToRefill();
             UpdateReasourcesFromP1();
             UIupdate();
-
-            //temperary Code
-            if (Input.GetKeyDown(KeyCode.P))
-            {
-                string name = "OfType1";
-                SpawnReasources(name);
-            }
-
-            if (Input.GetKeyDown(KeyCode.L))
-            {
-                string name = "OfType2";
-                SpawnReasources(name);
-            }
-
-            if (Input.GetKeyDown(KeyCode.M))
-            {
-                string name = "OfType3";
-                SpawnReasources(name);
-            }
+            CheckP2Actions();
+            GeneralManagement();
         }
     
         #region  P1-Methods
@@ -211,6 +197,39 @@ namespace Alex.Carvalho
             Res_1_Image.fillAmount = fill_1;
             Res_2_Image.fillAmount = fill_2;
             Res_3_Image.fillAmount = fill_3;
+        }
+        #endregion
+
+        #region P2-Methods
+        public void CheckP2Actions()
+        {
+            if(ResType_3 <= 0)
+            {
+                P2CanShoot = false;
+            }
+            else
+            {
+                P2CanShoot = true;
+            }
+
+            if(ResType_1 <= 0)
+            {
+                P2CanMove = false;
+               
+            }
+            else
+            {
+                P2CanMove = true;
+            }
+        }
+        public void isShooting()
+        {
+            ResType_3 = ResType_3 - 0.5f;
+        }
+
+        public void isMoving()
+        {
+            ResType_1 -= ResType_1_DecreaseRate * Time.deltaTime;
         }
         #endregion
     }
