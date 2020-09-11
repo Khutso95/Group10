@@ -24,7 +24,7 @@ public class Script_Bens_Spawner : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.transform.name == "Player")
+        if (other.transform.tag == "Player 2")
         {
             Rigidbody _rb;
             _rb = Instantiate(_resourcePrefab, _resourceSpawnPoint.position, _resourceSpawnPoint.rotation);

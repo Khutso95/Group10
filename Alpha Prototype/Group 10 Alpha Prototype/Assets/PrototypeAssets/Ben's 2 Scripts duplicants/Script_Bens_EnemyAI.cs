@@ -22,4 +22,13 @@ public class Script_Bens_EnemyAI : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(tr_Player.position - transform.position), f_RotSpeed * Time.deltaTime);
         transform.position += transform.forward * f_MoveSpeed * Time.deltaTime;
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+
+        if(collision.transform.name == "Projectile(Clone)")
+        {
+            Destroy(gameObject);
+        }
+    }
 }
