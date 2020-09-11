@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Alex.Carvalho
 { 
@@ -20,13 +21,21 @@ namespace Alex.Carvalho
         private float tempTimer = 0f;
 
         #endregion
+
         #region player 2 variables
         #endregion
 
         #region gameManager Variables;
         public float ResType_1;
+        public float ResType_1_Max;
         public float ResType_2;
-        public float RestType_3;
+        public float ResType_2_Max;
+        public float ResType_3;
+        public float ResType_3_Max;
+
+        public Image Res_1_Image;
+        public Image Res_2_Image;
+        public Image Res_3_Image;
 
         public GameObject ResType_1_Prefab;
         public GameObject ResType_2_Prefab;
@@ -40,6 +49,7 @@ namespace Alex.Carvalho
         {
             CheckToRefill();
             UpdateReasourcesFromP1();
+            UIupdate();
 
             //temperary Code
             if (Input.GetKeyDown(KeyCode.P))
@@ -60,9 +70,7 @@ namespace Alex.Carvalho
                 SpawnReasources(name);
             }
         }
-
-
-
+    
         #region  P1-Methods
 
         public void UpdateReasourcesFromP1()//Updates the value in the GM about what the vlalue in the Cell is
@@ -142,7 +150,7 @@ namespace Alex.Carvalho
             }
             else if (name == "OfType3")
             {
-                RestType_3 += Time.deltaTime;
+                ResType_3 += Time.deltaTime;
             }
             else
             {
@@ -168,6 +176,41 @@ namespace Alex.Carvalho
             {
                 Debug.LogError("Script_GM_RM: SpawnReasources - did not find any Childname matching given paramaters");
             }
+        }
+
+        public void GeneralManagement()
+        {
+            if (Input.GetKey(KeyCode.Escape))
+            {
+                Application.Quit();
+            }
+        }
+
+        public void UIupdate()
+        {
+            if(ResType_1 >= ResType_1_Max)
+            {
+                ResType_1 = ResType_1_Max;
+            }
+
+            if(ResType_2 >= ResType_2_Max)
+            {
+                ResType_2 = ResType_2_Max;
+            }
+
+            if(ResType_3 >= ResType_3_Max)
+            {
+                ResType_3 = ResType_3_Max;
+            }
+
+
+
+            float fill_1 = ResType_1 / ResType_1_Max;
+            float fill_2 = ResType_2 / ResType_2_Max;
+            float fill_3 = ResType_3 / ResType_3_Max;
+            Res_1_Image.fillAmount = fill_1;
+            Res_2_Image.fillAmount = fill_2;
+            Res_3_Image.fillAmount = fill_3;
         }
         #endregion
     }

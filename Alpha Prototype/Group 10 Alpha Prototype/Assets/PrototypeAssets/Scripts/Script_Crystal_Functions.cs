@@ -86,13 +86,13 @@ namespace Alex.Carvalho
                 if (hit.transform.tag == StorageTag)
                 {
                     isStored = true;
-                    TimerCanvas.enabled = false;
+                    //TimerCanvas.enabled = false;
 
                 }
                 else
                 {
                     isStored = false;
-                    TimerCanvas.enabled = true;
+                   // TimerCanvas.enabled = true;
                 }
 
                 if(hit.transform.tag == DepositTag)

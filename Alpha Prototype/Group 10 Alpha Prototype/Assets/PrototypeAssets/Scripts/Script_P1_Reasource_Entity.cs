@@ -42,7 +42,6 @@ namespace Alex.Carvalho
 
             ReasourceAmount = StartingAmount;
             TimeCanvas = GetComponentInChildren<Canvas>();
-            TimeBar = GetComponentInChildren<Image>();
             object_GameManager = GameObject.FindGameObjectWithTag("GameController");
 
         }

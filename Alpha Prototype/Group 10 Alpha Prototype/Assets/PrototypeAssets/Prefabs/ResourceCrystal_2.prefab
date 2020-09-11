@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5393173962455814675}
   - component: {fileID: 5393173962455814677}
   - component: {fileID: 5393173962455814674}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: BarImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 5393173963361497829}
   - component: {fileID: 5393173963361497826}
   - component: {fileID: 5393173963361497827}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: TimerCanvas (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,7 +186,7 @@ GameObject:
   - component: {fileID: 5393173963516711436}
   - component: {fileID: 5393173963516711437}
   - component: {fileID: 5393173963516711434}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ResourceCrystal_2
   m_TagString: BaseReasource
   m_Icon: {fileID: 0}
@@ -254,7 +254,7 @@ GameObject:
   - component: {fileID: 5393173963748246607}
   - component: {fileID: 5393173963748246609}
   - component: {fileID: 5393173963748246606}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -318,7 +318,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5393173964238020768}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: OfType2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -350,7 +350,7 @@ GameObject:
   - component: {fileID: 5393173964515449995}
   - component: {fileID: 5393173964515449997}
   - component: {fileID: 5393173964515449994}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CrystalModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
