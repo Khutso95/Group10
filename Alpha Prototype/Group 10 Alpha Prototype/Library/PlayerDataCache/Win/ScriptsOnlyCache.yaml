@@ -8,6 +8,7 @@ ScriptsOnlyBuild:
     - Alex.Carvalho.Script_Player_1_Collision
     - Alex.Carvalho.Script_Player_1_Movement
     - DestroyProjectile
+    - EnemyAI
     - Script_Bens_EnemyAI
     - Script_Bens_PlayerCtr
     - Script_Bens_RotateReasources
@@ -75,53 +76,53 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11760}
+      Script: {instanceID: 11708}
     - Class: 114
-      Script: {instanceID: 11964}
+      Script: {instanceID: 11732}
     - Class: 114
-      Script: {instanceID: 12016}
+      Script: {instanceID: 11936}
     - Class: 114
-      Script: {instanceID: 12190}
+      Script: {instanceID: 11988}
     - Class: 114
-      Script: {instanceID: 12336}
+      Script: {instanceID: 12162}
     - Class: 114
-      Script: {instanceID: 12444}
+      Script: {instanceID: 12308}
     - Class: 114
-      Script: {instanceID: 12506}
+      Script: {instanceID: 12416}
     - Class: 114
-      Script: {instanceID: 12786}
+      Script: {instanceID: 12428}
     - Class: 114
-      Script: {instanceID: 12802}
+      Script: {instanceID: 12758}
     - Class: 114
-      Script: {instanceID: 12908}
+      Script: {instanceID: 12774}
     - Class: 114
-      Script: {instanceID: 13144}
+      Script: {instanceID: 12880}
     - Class: 114
-      Script: {instanceID: 13164}
+      Script: {instanceID: 13116}
     - Class: 114
-      Script: {instanceID: 13184}
+      Script: {instanceID: 13136}
     - Class: 114
-      Script: {instanceID: 13252}
+      Script: {instanceID: 13156}
     - Class: 114
-      Script: {instanceID: 13408}
+      Script: {instanceID: 13224}
     - Class: 114
-      Script: {instanceID: 13558}
+      Script: {instanceID: 13380}
     - Class: 114
-      Script: {instanceID: 13678}
+      Script: {instanceID: 13446}
     - Class: 114
-      Script: {instanceID: 14068}
+      Script: {instanceID: 13532}
     - Class: 114
-      Script: {instanceID: 14096}
+      Script: {instanceID: 13652}
     - Class: 114
-      Script: {instanceID: 16926}
+      Script: {instanceID: 13682}
     - Class: 114
-      Script: {instanceID: 16938}
+      Script: {instanceID: 13836}
     - Class: 114
-      Script: {instanceID: 16950}
+      Script: {instanceID: 13980}
     - Class: 114
-      Script: {instanceID: 16962}
+      Script: {instanceID: 14050}
     - Class: 114
-      Script: {instanceID: 16974}
+      Script: {instanceID: 14078}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -151,6 +152,12 @@ ScriptsOnlyBuild:
     - Class: 224
       Script: {instanceID: 0}
   scriptHashData:
+  - hash:
+      serializedVersion: 2
+      Hash: cc4274b586df3c02688bac01b88bd16c
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.EventSystems
+    className: EventSystem
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -429,10 +436,10 @@ ScriptsOnlyBuild:
     className: Script_Player_1_Movement
   - hash:
       serializedVersion: 2
-      Hash: cc4274b586df3c02688bac01b88bd16c
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.EventSystems
-    className: EventSystem
+      Hash: d3a6efe7de95e50f98efeb9890621726
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Script_Bens_RotateReasources
   - hash:
       serializedVersion: 2
       Hash: 0fb27be807aa299702f28ad0bcad1f46
@@ -711,6 +718,12 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
+      Hash: 5d8ce69967f2f3a54e34228e0b695bfe
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Script_Bens_Shoot
+  - hash:
+      serializedVersion: 2
       Hash: a66794b62dbf044668a5f102bb7908c2
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
@@ -777,6 +790,12 @@ ScriptsOnlyBuild:
     className: BeforeAfterTestCommandState
   - hash:
       serializedVersion: 2
+      Hash: fae935c15deb4ada2c0ed95d770bbee0
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Script_Bens_Spawner
+  - hash:
+      serializedVersion: 2
       Hash: 6ff1c52123c50b3d73f35cd0e2e65dfd
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
@@ -795,6 +814,12 @@ ScriptsOnlyBuild:
     className: CinemachineInputProvider
   - hash:
       serializedVersion: 2
+      Hash: d3a6efe7de95e50f98efeb9890621726
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Script_Bens_DestroyProjectyle
+  - hash:
+      serializedVersion: 2
       Hash: ffd3ed4fcd23b3e7745287c99a637247
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
@@ -811,6 +836,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: RotateResource
+  - hash:
+      serializedVersion: 2
+      Hash: e155e92a3cfcd040eaf0e0a3b9bb4dd2
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Script_Bens_EnemyAI
   - hash:
       serializedVersion: 2
       Hash: 5e84370a36252d6aa37d6a7bd37710f7
@@ -835,6 +866,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_ColorGradient
+  - hash:
+      serializedVersion: 2
+      Hash: 2df65533d60097b321d290b5b5f8f674
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Script_Bens_PlayerCtr
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -939,6 +976,12 @@ ScriptsOnlyBuild:
     className: Slider
   - hash:
       serializedVersion: 2
+      Hash: 75ea199db82b19c2d1928fb77ccf2656
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Script_Bens_CameraLock
+  - hash:
+      serializedVersion: 2
       Hash: 0fd6822f6177297bd0eb4d83cc7a9030
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -949,49 +992,8 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: fae935c15deb4ada2c0ed95d770bbee0
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Script_Bens_Spawner
-  - hash:
-      serializedVersion: 2
-      Hash: 5d8ce69967f2f3a54e34228e0b695bfe
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Script_Bens_Shoot
-  - hash:
-      serializedVersion: 2
-      Hash: d3a6efe7de95e50f98efeb9890621726
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Script_Bens_RotateReasources
-  - hash:
-      serializedVersion: 2
-      Hash: 2df65533d60097b321d290b5b5f8f674
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Script_Bens_PlayerCtr
-  - hash:
-      serializedVersion: 2
-      Hash: e155e92a3cfcd040eaf0e0a3b9bb4dd2
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Script_Bens_EnemyAI
-  - hash:
-      serializedVersion: 2
-      Hash: d3a6efe7de95e50f98efeb9890621726
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Script_Bens_DestroyProjectyle
-  - hash:
-      serializedVersion: 2
-      Hash: 75ea199db82b19c2d1928fb77ccf2656
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Script_Bens_CameraLock
   platform: 5
   scenePathNames:
   - Assets/Scenes/AplhaScene.unity
-  playerPath: C:/Users/alexa/Desktop/New folder (3)/Group 10 Alpha Prototype.exe
+  playerPath: C:/Users/alexa/Desktop/Group 10 Alpha is somewhat fixed/Group 10 Alpha
+    Prototype.exe
