@@ -49,6 +49,14 @@ namespace Alex.Carvalho
         {
             DetectOnPoint();
             ReasourceManagement();
+
+            //Code that fixes the rotation back to the nearest 90 degree angle
+            if(transform.rotation.y != 0 && transform.parent == null)
+            {
+                var CurAngle = transform.eulerAngles;
+                CurAngle.y = Mathf.Round(CurAngle.y / 90) * 90;
+                transform.eulerAngles = CurAngle;
+            }
         }
 
         void CheckForErrors()

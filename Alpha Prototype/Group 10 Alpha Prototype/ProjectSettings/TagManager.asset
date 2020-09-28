@@ -16,6 +16,7 @@ TagManager:
   - ContainmentCells
   - Player 2
   - Clone
+  - CraftingInput
   layers:
   - Default
   - TransparentFX
