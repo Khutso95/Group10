@@ -20,12 +20,12 @@ namespace Alex.Carvalho
         private float LifeTimeStart;
 
         //Varaibles related to the Crafting Bench
-        public GameObject object_CraftingBench;
+        public GameObject[] object_CraftingBench;
+        public GameObject closestGO;
 
         /// Ui Elements to display how long it will be until it degrades
         public Canvas TimerCanvas;
         public Image TimerImage;
-
         #region ReasourceStates
        
        
@@ -44,13 +44,13 @@ namespace Alex.Carvalho
             switch (_StateHolder)
             {
                 case RawReasourceState.Decaying:
-                    //Debug.Log("Is Decaing");
+                    
                     break;
                 case RawReasourceState.InUse:
-                    //Debug.Log("Is in Use");
+                    
                     break;
                 case RawReasourceState.Stored:
-                  //  Debug.Log("Is Stored");
+                 
                     break;
                
             }
@@ -64,34 +64,13 @@ namespace Alex.Carvalho
             LifeTimeStart = LifeTimeDuration;
             TimerCanvas = GetComponentInChildren<Canvas>();
             TimerImage = GetComponentInChildren<Image>();
-            object_CraftingBench = GameObject.FindGameObjectWithTag("GameController");
+            object_CraftingBench = GameObject.FindGameObjectsWithTag("CraftingBench");
             CheckForErrors();
+            
         }
 
         void Update()
         {
-            /*
-            if(_StateHolder == RawReasourceState.InUse)
-            {
-                Debug.Log("The Resource is in Use");
-            }
-            if (Input.GetKeyDown(KeyCode.I))
-            {
-                _StateHolder = RawReasourceState.Decaying;
-                CheckState();
-            }
-            if (Input.GetKeyDown(KeyCode.O))
-            {
-                _StateHolder = RawReasourceState.InUse;
-                CheckState();
-            }
-            if (Input.GetKeyDown(KeyCode.P))
-            {
-                _StateHolder = RawReasourceState.Stored;
-                CheckState();
-            }
-            */
-
             RawReasourceDecay();
             CollisionDetection();
             UpdateUi();
@@ -101,7 +80,7 @@ namespace Alex.Carvalho
         {
             if (object_CraftingBench == null)
             {
-                Debug.LogError("Missing: object_GameManger == null");
+                Debug.LogError("Missing: object_CraftingBench == null");
             }
         }
 
@@ -116,6 +95,7 @@ namespace Alex.Carvalho
             if(_StateHolder == RawReasourceState.InUse)
             {
                 LifeTimeDuration -= InUseRate * Time.deltaTime;
+                SendMessageToCrafter();
             }
 
             if (LifeTimeDuration <= 0)
@@ -138,6 +118,7 @@ namespace Alex.Carvalho
 
             if (this.transform.parent != null)
             {
+                _StateHolder = RawReasourceState.Decaying;
                 return;
             }
             else
@@ -152,10 +133,8 @@ namespace Alex.Carvalho
                 if (hit.transform.tag == CraftingInputTag)
                 {
                     _StateHolder = RawReasourceState.InUse;
+                    FindClosestCraftingBench();
 
-
-                   // string childName = this.transform.GetChild(0).name;
-                   //object_GameManager.GetComponent<Script_GM_RM>().CrystalDeposit(childName);   ///Notifies the GM
                 }
 
                 if(hit.transform.tag != StorageTag && hit.transform.tag != CraftingInputTag)
@@ -171,6 +150,32 @@ namespace Alex.Carvalho
             float PercentageFill = LifeTimeDuration / LifeTimeStart;
 
             TimerImage.fillAmount = PercentageFill;
+        }
+
+        public GameObject FindClosestCraftingBench()
+        {
+            GameObject closest = null;
+            float distance = Mathf.Infinity;
+            Vector3 position = transform.position;
+            foreach (GameObject CraftingBench in object_CraftingBench)
+            {
+                Vector3 diff = CraftingBench.transform.position - position;
+                float curDistance = diff.sqrMagnitude;
+                if (curDistance < distance)
+                {
+                    closest = CraftingBench;
+                    distance = curDistance;
+                }
+            }
+            closestGO = closest;
+            return closest;
+        }
+
+
+        public void SendMessageToCrafter()
+        {
+            string childName = this.transform.GetChild(0).name;
+            closestGO.GetComponent<Beta_Script_Crafting>().CraftingRefinedResource(childName);  ///Notifies the GM
         }
     }
 }

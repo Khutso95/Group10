@@ -17,6 +17,8 @@ TagManager:
   - Player 2
   - Clone
   - CraftingInput
+  - CraftingOutput
+  - CraftingBench
   layers:
   - Default
   - TransparentFX
