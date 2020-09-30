@@ -18,13 +18,13 @@ namespace Alex.Carvalho
        
 
         private float LifeTimeStart;
+        private bool FindNearestObject;
 
         //Varaibles related to the Crafting Bench
         public GameObject[] object_CraftingBench;
         public GameObject closestGO;
 
         /// Ui Elements to display how long it will be until it degrades
-        public Canvas TimerCanvas;
         public Image TimerImage;
         #region ReasourceStates
        
@@ -62,7 +62,6 @@ namespace Alex.Carvalho
         void Start()
         {
             LifeTimeStart = LifeTimeDuration;
-            TimerCanvas = GetComponentInChildren<Canvas>();
             TimerImage = GetComponentInChildren<Image>();
             object_CraftingBench = GameObject.FindGameObjectsWithTag("CraftingBench");
             CheckForErrors();
@@ -73,6 +72,7 @@ namespace Alex.Carvalho
         {
             RawReasourceDecay();
             CollisionDetection();
+            ControlledSearch();
             UpdateUi();
         }
 
@@ -133,7 +133,7 @@ namespace Alex.Carvalho
                 if (hit.transform.tag == CraftingInputTag)
                 {
                     _StateHolder = RawReasourceState.InUse;
-                    FindClosestCraftingBench();
+                    
 
                 }
 
@@ -171,6 +171,19 @@ namespace Alex.Carvalho
             return closest;
         }
 
+        public void ControlledSearch()
+        {
+            if(this.transform.parent != null)
+            {
+                FindNearestObject = false;
+            }
+            
+            if (this.transform.parent != null && !FindNearestObject)
+            {
+                FindClosestCraftingBench();
+                FindNearestObject = true;
+            }
+        }
 
         public void SendMessageToCrafter()
         {
