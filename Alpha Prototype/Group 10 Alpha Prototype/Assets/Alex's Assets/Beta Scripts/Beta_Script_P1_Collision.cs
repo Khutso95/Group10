@@ -63,6 +63,7 @@ namespace Alex.Carvalho
                     Holding = false;
                     hit.collider.transform.parent = null;
                 }
+
             }
         }
 

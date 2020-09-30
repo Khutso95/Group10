@@ -7,59 +7,43 @@ namespace Alex.Carvalho
 
     public class Beta_Output_Collider_Script : MonoBehaviour
     {
-        //Varaibles related to the Crafting Bench
-        public GameObject[] object_CraftingBench;
-        public GameObject closestGO;
-
-        public bool occupied;
+        [Tooltip("The Crafting Bench Object that corresponds to this object")]
+        public GameObject CraftingBench;
+        [Tooltip("The name of the refined resource tag")]
         public string ReasourceName;
+        [Tooltip("Bool detects if a refined resource is on top of the output")]
+        public bool _canSpawn;
 
-        
+
         void Start()
         {
-            object_CraftingBench = GameObject.FindGameObjectsWithTag("CraftingBench");
-            FindClosestCraftingBench();
+            
+            
         }
 
        
         void Update()
         {
-            
+           
         }
 
-        public GameObject FindClosestCraftingBench()
+        public void DetectBlock()
         {
-            GameObject closest = null;
-            float distance = Mathf.Infinity;
-            Vector3 position = transform.position;
-            foreach (GameObject CraftingBench in object_CraftingBench)
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.up), out hit, 1))
             {
-                Vector3 diff = CraftingBench.transform.position - position;
-                float curDistance = diff.sqrMagnitude;
-                if (curDistance < distance)
+                if(hit.transform.tag == ReasourceName)
                 {
-                    closest = CraftingBench;
-                    distance = curDistance;
+                    _canSpawn = false;
+                }
+                else
+                {
+                    _canSpawn = true;
                 }
             }
-            closestGO = closest;
-            return closest;
-        }
-
-
-        private void OnTriggerExit(Collider other)
-        {
-            if (other.gameObject.tag == ReasourceName)
+            else
             {
-                occupied = false;
-            }
-        }
-
-        private void OnTriggerStay(Collider other)
-        {
-            if (other.gameObject.tag == ReasourceName)
-            {
-                occupied = true;
+                _canSpawn = true;
             }
         }
 

@@ -1481,7 +1481,7 @@ GameObject:
   - component: {fileID: 376470612}
   - component: {fileID: 376470611}
   m_Layer: 8
-  m_Name: Crafting Collider
+  m_Name: Crafting Collider_Upgrade
   m_TagString: CraftingBench
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1523,9 +1523,10 @@ MonoBehaviour:
   _craftingAmount: 0
   _craftingRate: 1
   CraftingOuputPos: {fileID: 2004507510}
-  SpawnOffset: {x: 0, y: 0.8, z: 0}
+  SpawnOffset: {x: 0, y: 1.1, z: 0}
   RawReasourceType: OfType3
   canSpawn: 0
+  CraftingOutput: {fileID: 2004507509}
   CompletionBar: {fileID: 0}
 --- !u!65 &376470612
 BoxCollider:
@@ -2367,7 +2368,7 @@ MonoBehaviour:
   ContainerCell: ContainmentCells
   RefinedResource: RefinedResource
   rayMaxDistance: 0.75
-  offset: {x: 0, y: 0.5, z: 0}
+  offset: {x: 0, y: 0, z: 0}
   Camera: {fileID: 8876668}
   AmmoRoom: AmmoRoom
   CenterRoom: CenterRoom
@@ -3618,7 +3619,7 @@ GameObject:
   - component: {fileID: 919158269}
   - component: {fileID: 919158270}
   m_Layer: 8
-  m_Name: Crafting Collider
+  m_Name: Crafting Collider_Ammo
   m_TagString: CraftingBench
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3673,9 +3674,10 @@ MonoBehaviour:
   _craftingAmount: 0
   _craftingRate: 1
   CraftingOuputPos: {fileID: 1797097415}
-  SpawnOffset: {x: 0, y: 0.8, z: 0}
+  SpawnOffset: {x: 0, y: 1.1, z: 0}
   RawReasourceType: OfType2
   canSpawn: 0
+  CraftingOutput: {fileID: 1797097414}
   CompletionBar: {fileID: 0}
 --- !u!1 &957234793
 GameObject:
@@ -6335,6 +6337,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1797097415}
   - component: {fileID: 1797097416}
+  - component: {fileID: 1797097417}
   m_Layer: 8
   m_Name: '_Crafting Ounput Collider '
   m_TagString: CraftingOutput
@@ -6350,7 +6353,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1797097414}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.16, y: -0.2, z: -3.71}
+  m_LocalPosition: {x: -27.16, y: -0.5, z: -3.71}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 365466992}
@@ -6364,11 +6367,26 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1797097414}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.54, y: 1, z: 3.16}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1797097417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797097414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31e962f4fcd13f640b8b1ee12c2aef58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CraftingBench: {fileID: 919158267}
+  ReasourceName: RefinedResource
+  _canSpawn: 0
 --- !u!1 &1835640591
 GameObject:
   m_ObjectHideFlags: 0
@@ -6621,7 +6639,7 @@ GameObject:
   - component: {fileID: 1862778386}
   - component: {fileID: 1862778387}
   m_Layer: 8
-  m_Name: Crafting Collider
+  m_Name: Crafting Collider_Fuel
   m_TagString: CraftingBench
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6676,9 +6694,10 @@ MonoBehaviour:
   _craftingAmount: 0
   _craftingRate: 1
   CraftingOuputPos: {fileID: 2087621684}
-  SpawnOffset: {x: 0, y: 0.8, z: 0}
+  SpawnOffset: {x: 0, y: 1.1, z: 0}
   RawReasourceType: OfType1
   canSpawn: 1
+  CraftingOutput: {fileID: 2087621683}
   CompletionBar: {fileID: 0}
 --- !u!1 &1875301643
 GameObject:
@@ -7579,6 +7598,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2004507510}
   - component: {fileID: 2004507511}
+  - component: {fileID: 2004507512}
   m_Layer: 8
   m_Name: _Crafting Output Collider
   m_TagString: CraftingOutput
@@ -7594,7 +7614,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2004507509}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16.24, y: -0.2, z: 13.5}
+  m_LocalPosition: {x: 16.24, y: -0.5, z: 13.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1504744068}
@@ -7613,6 +7633,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.54, y: 1, z: 3.16}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2004507512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2004507509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31e962f4fcd13f640b8b1ee12c2aef58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CraftingBench: {fileID: 376470609}
+  ReasourceName: RefinedResource
+  _canSpawn: 0
 --- !u!1 &2008856569
 GameObject:
   m_ObjectHideFlags: 0
@@ -8035,7 +8070,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2087621683}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.01, y: -0.2, z: -14.69}
+  m_LocalPosition: {x: -9.01, y: -0.5, z: -14.69}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1501984276}
@@ -8049,8 +8084,8 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2087621683}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
+  m_IsTrigger: 0
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 2.34, y: 1, z: 2.3508682}
   m_Center: {x: 0, y: 0, z: 0.21049881}
@@ -8066,10 +8101,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31e962f4fcd13f640b8b1ee12c2aef58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  object_CraftingBench: []
-  closestGO: {fileID: 0}
-  occupied: 0
+  CraftingBench: {fileID: 1862778384}
   ReasourceName: RefinedResource
+  _canSpawn: 0
 --- !u!1 &2108761463
 GameObject:
   m_ObjectHideFlags: 0
