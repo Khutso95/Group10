@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/RaceTrackScene.unity
+- path: Assets/Scenes/BetaScene.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

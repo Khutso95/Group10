@@ -14,19 +14,6 @@ namespace Alex.Carvalho
         [Tooltip("Bool detects if a refined resource is on top of the output")]
         public bool _canSpawn;
 
-
-        void Start()
-        {
-            
-            
-        }
-
-       
-        void Update()
-        {
-           
-        }
-
         public void DetectBlock()
         {
             RaycastHit hit;

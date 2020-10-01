@@ -239,12 +239,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LifeTimeDuration: 100
-  InUseRate: 0
+  InUseRate: 2
   StorageTag: StoreReasource
   CraftingInputTag: CraftingInput
   object_CraftingBench: []
   closestGO: {fileID: 0}
-  TimerCanvas: {fileID: 0}
   TimerImage: {fileID: 0}
   _StateHolder: 0
 --- !u!1 &7778986319702111670
