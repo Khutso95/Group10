@@ -11,11 +11,13 @@ namespace Alex.Carvalho
         public bool Holding;
 
         [Tooltip("The name of the Reasource tag")]
-        public string Reasource;
-
+        public string Resource;
         [Tooltip("The name of the Cell tag")]
         public string ContainerCell;
+        [Tooltip("The name of the Refined Resource Tag")]
+        public string RefinedResource;
 
+    
         public float rayMaxDistance;
 
         public Vector3 offset;
@@ -29,14 +31,15 @@ namespace Alex.Carvalho
        
         #endregion
 
-        void Update()
+        void FixedUpdate()
         {
             CheckRoom();
-            if (Input.GetKeyDown(KeyCode.Space))
+
+            if (Input.GetKey(KeyCode.C))
             {
                 GrabHold = true;
             }
-            if (Input.GetKeyUp(KeyCode.Space))
+            else
             {
                 GrabHold = false;
             }
@@ -47,7 +50,7 @@ namespace Alex.Carvalho
             {
                 Debug.DrawRay(RayStartingPoint, transform.TransformDirection(Vector3.forward) * hit.distance, Color.red);
 
-                if (GrabHold && hit.collider.tag == Reasource || GrabHold && hit.collider.tag == ContainerCell)
+                if (GrabHold && hit.collider.tag == Resource || GrabHold && hit.collider.tag == ContainerCell || GrabHold && hit.collider.tag == RefinedResource)
                 {
                     if (!Holding)
                     {
@@ -55,11 +58,12 @@ namespace Alex.Carvalho
                         Holding = true;
                     }
                 }
-                else
+                else if(hit.collider.tag == Resource || hit.collider.tag == ContainerCell || hit.collider.tag == RefinedResource)
                 {
                     Holding = false;
                     hit.collider.transform.parent = null;
                 }
+
             }
         }
 

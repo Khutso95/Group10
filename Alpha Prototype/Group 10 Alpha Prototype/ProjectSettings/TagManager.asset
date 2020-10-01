@@ -19,6 +19,8 @@ TagManager:
   - CraftingInput
   - CraftingOutput
   - CraftingBench
+  - RefinedResource
+  - UseResource
   layers:
   - Default
   - TransparentFX
