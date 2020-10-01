@@ -21,6 +21,7 @@ TagManager:
   - CraftingBench
   - RefinedResource
   - UseResource
+  - DestroyTag
   layers:
   - Default
   - TransparentFX
