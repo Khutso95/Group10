@@ -11,6 +11,13 @@ namespace Alex.Carvalho
 
          #region For P1ayer 1
         //The Raw Resource prefabs
+        public enum ResourceType
+        {
+            ofType1 = 0,
+            ofType2 = 1,
+            ofType3 = 2
+        }
+
         public GameObject Raw_Res_Type_1;
         public GameObject Raw_Res_Type_2;
         public GameObject Raw_Res_Type_3;
@@ -101,24 +108,35 @@ namespace Alex.Carvalho
 
         #region SpawningResources
 
+
         #region Player 1 Enviroment
-        public void SpawnP1ResourceType1()
+        public void SpawnResourceP1(int WorldResourceInt)
         {
-            Instantiate(Raw_Res_Type_1, P1SpawnLocation.position, Quaternion.identity);        
-        }
-
-        public void SpawnP1ResourceType2()
-        {
-            Instantiate(Raw_Res_Type_2, P1SpawnLocation.position, Quaternion.identity);
-        }
-
-        public void SpawnP1ResourceType3()
-        {
-            Instantiate(Raw_Res_Type_3, P1SpawnLocation.position, Quaternion.identity);
+            if (WorldResourceInt == (int)ResourceType.ofType1)
+            {
+                Instantiate(Raw_Res_Type_1, P1SpawnLocation.position, Quaternion.identity);
+            }
+            else if (WorldResourceInt == (int)ResourceType.ofType2)
+            {
+                Instantiate(Raw_Res_Type_2, P1SpawnLocation.position, Quaternion.identity);
+            }
+            else if (WorldResourceInt == (int)ResourceType.ofType3)
+            {
+                Instantiate(Raw_Res_Type_3, P1SpawnLocation.position, Quaternion.identity);
+            }
+            else
+            {
+                Debug.Log("Spawning Resouce did not find a match for the resource type");
+            }
         }
         #endregion
 
         #region Player 2 Enviroment
+        public void SpawnResourceP2(int WorldResourceInt)
+        {
+            
+        }
+
         #endregion
         #endregion
 
