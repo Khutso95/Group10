@@ -14,6 +14,7 @@ namespace Alex.Carvalho
         public GameObject Raw_Res_Type_1;
         public GameObject Raw_Res_Type_2;
         public GameObject Raw_Res_Type_3;
+        public Transform P1SpawnLocation;
         #endregion
 
         #region For P1ayer 2
@@ -44,11 +45,7 @@ namespace Alex.Carvalho
         public Image P2_Ammo_Bar;
         #endregion
 
-        #region Spawning Variables
-        public Transform SpawnLocation;
-        #endregion
-
-
+     
         void Start()
         {
 
@@ -105,13 +102,23 @@ namespace Alex.Carvalho
         #region SpawningResources
 
         #region Player 1 Enviroment
-
-        public void SpawnP1Resources()
+        public void SpawnP1ResourceType1()
         {
-            Instantiate(Raw_Res_Type_1, SpawnLocation.position, Quaternion.identity);
-            Instantiate(Raw_Res_Type_2, SpawnLocation.position, Quaternion.identity);
-            Instantiate(Raw_Res_Type_3, SpawnLocation.position, Quaternion.identity);
+            Instantiate(Raw_Res_Type_1, P1SpawnLocation.position, Quaternion.identity);        
         }
+
+        public void SpawnP1ResourceType2()
+        {
+            Instantiate(Raw_Res_Type_2, P1SpawnLocation.position, Quaternion.identity);
+        }
+
+        public void SpawnP1ResourceType3()
+        {
+            Instantiate(Raw_Res_Type_3, P1SpawnLocation.position, Quaternion.identity);
+        }
+        #endregion
+
+        #region Player 2 Enviroment
         #endregion
         #endregion
 
