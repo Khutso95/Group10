@@ -2265,6 +2265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerController: {fileID: 524212978}
   PlayerSpeed: 10
+  RotationSpeed: 0
 --- !u!143 &524212978
 CharacterController:
   m_ObjectHideFlags: 0
@@ -4797,7 +4798,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 907431355}
-  m_LocalRotation: {x: 0.09853762, y: -0.000000004280661, z: 4.238689e-10, w: 0.99513334}
+  m_LocalRotation: {x: 0.098537624, y: 0.0000000042806607, z: -4.238689e-10, w: 0.99513334}
   m_LocalPosition: {x: 498.84, y: 11.34, z: 464.92}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -9527,7 +9528,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1794698701}
-  m_LocalRotation: {x: 0.09853762, y: -0.000000004280661, z: 4.238689e-10, w: 0.99513334}
+  m_LocalRotation: {x: 0.098537624, y: 0.0000000042806607, z: -4.238689e-10, w: 0.99513334}
   m_LocalPosition: {x: 498.84, y: 11.34, z: 464.92}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []

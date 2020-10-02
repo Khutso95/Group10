@@ -233,7 +233,7 @@ Transform:
   m_Children:
   - {fileID: 1927651260}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!114 &8876671
 MonoBehaviour:
@@ -2198,7 +2198,7 @@ Transform:
   m_Children:
   - {fileID: 1944656649}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &585242636
 GameObject:
@@ -2375,7 +2375,6 @@ GameObject:
   - component: {fileID: 622984646}
   - component: {fileID: 622984645}
   - component: {fileID: 622984644}
-  - component: {fileID: 622984648}
   - component: {fileID: 622984647}
   m_Layer: 8
   m_Name: Player 1
@@ -2456,24 +2455,6 @@ MonoBehaviour:
   CenterRoom: CenterRoom
   EngineRoom: EngineRoom
   UpgradeRoom: UpgradeRoom
---- !u!114 &622984648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 622984643}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16de09b333ead4b43b82394586a94fb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GrabHold: 0
-  Holding: 0
-  Reasource: BaseReasource
-  ContainerCell: ContainmentCells
-  rayMaxDistance: 0.75
-  offset: {x: 0, y: 0.5, z: 0}
 --- !u!1 &624695735
 GameObject:
   m_ObjectHideFlags: 0
@@ -2567,7 +2548,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &645910343
 GameObject:
@@ -6663,7 +6644,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1793244082
 MonoBehaviour:
@@ -8427,7 +8408,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2077890514
 MonoBehaviour:
@@ -9066,11 +9047,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7241894132567618767, guid: 69e149583fd19ee408a5f263fb9f7fcf,
-        type: 3}
-      propertyPath: InUseRate
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 7241894132779097953, guid: 69e149583fd19ee408a5f263fb9f7fcf,
         type: 3}
       propertyPath: m_Name
@@ -9229,11 +9205,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6338222482422284545, guid: c345bd2a7b3e9ec4fb1fd3f68488a103,
-        type: 3}
-      propertyPath: InUseRate
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 7778986319312000347, guid: c345bd2a7b3e9ec4fb1fd3f68488a103,
         type: 3}
       propertyPath: m_LocalPosition.x
