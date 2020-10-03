@@ -31,13 +31,11 @@ namespace Alex.Carvalho
         {
             float _P1Horizontal = Input.GetAxisRaw("Player 1 Horizontal");
             float _P1Vertical = Input.GetAxisRaw("Player 1 Vertical");
-
             Vector3 movement = new Vector3(_P1Horizontal, 0f, _P1Vertical);
 
             if(movement != Vector3.zero)
             {
-             
-               //transform.rotation = Quaternion.LookRotation(movement);
+
                 transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(movement), Time.deltaTime * RotationSpeed);
                 
             }

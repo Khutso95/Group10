@@ -188,6 +188,7 @@ GameObject:
   - component: {fileID: 7778986319312000347}
   - component: {fileID: 7778986319312000346}
   - component: {fileID: 6338222482422284545}
+  - component: {fileID: 7152685930895033119}
   m_Layer: 8
   m_Name: RawResourceType_2
   m_TagString: BaseReasource
@@ -221,7 +222,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 7778986319312000348}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2.4
   m_Direction: 1
@@ -246,6 +247,19 @@ MonoBehaviour:
   closestGO: {fileID: 0}
   TimerImage: {fileID: 0}
   _StateHolder: 0
+--- !u!65 &7152685930895033119
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7778986319312000348}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7778986319702111670
 GameObject:
   m_ObjectHideFlags: 0

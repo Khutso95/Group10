@@ -9,7 +9,7 @@ namespace Alex.Carvalho
     {
         #region Spawning Prefabs Variables
 
-         #region For P1ayer 1
+        #region For P1ayer 1
         //The Raw Resource prefabs
         public enum ResourceType
         {
@@ -22,9 +22,19 @@ namespace Alex.Carvalho
         public GameObject Raw_Res_Type_2;
         public GameObject Raw_Res_Type_3;
         public Transform P1SpawnLocation;
+        public Vector3 P1SpawnOffSett;
         #endregion
 
         #region For P1ayer 2
+        public int Type1ListSize;
+        public List<GameObject> Type1ActiveResource = new List<GameObject>();
+        public int Type2ListSize;
+        public List<GameObject> Type2ActiveResource = new List<GameObject>();
+        public int Type3ListSize;
+        public List<GameObject> Type3ActiveResource = new List<GameObject>();
+        private List<GameObject> TempDisabledObject = new List<GameObject>();
+
+
         #endregion
         #endregion
 
@@ -45,6 +55,9 @@ namespace Alex.Carvalho
         public float Type_1_Inc_Rate;
         public float Type_2_Inc_Rate;
         public float Type_3_Inc_Rate;
+        //Variables relating to the P2 Actions
+        public bool CanShoot;
+        public bool CanMove;
         #endregion
 
         #region Ui Elements
@@ -55,7 +68,7 @@ namespace Alex.Carvalho
      
         void Start()
         {
-
+          
         }
 
  
@@ -63,6 +76,7 @@ namespace Alex.Carvalho
         {
             CapResources();
             UpdateP2UI();
+            CheckResources();
         }
 
         #region Resource Methods
@@ -78,7 +92,40 @@ namespace Alex.Carvalho
                 Type_2_Res = Type_2_Res_Max;
             }
 
+            if(Type_1_Res <= 0)
+            {
+                Type_1_Res = 0;
+            }
+
+            if(Type_2_Res <= 0)
+            {
+                Type_2_Res = 0;
+            }
+
         }
+
+        public void CheckResources()
+        {
+            if(Type_1_Res <= 0)
+            {
+                CanMove = false;
+            }
+            else
+            {
+                CanMove = true;
+            }
+
+            if(Type_2_Res <= 0)
+            {
+                CanShoot = false;
+            }
+            else
+            {
+                CanShoot = true;
+            }
+
+        }
+
 
         public void IncreaseFuel()
         {
@@ -97,7 +144,7 @@ namespace Alex.Carvalho
 
         public void DecreaseAmmo()
         {
-            Type_2_Res -= Type_2_Dec_Rate * Time.deltaTime;
+            Type_2_Res -= Type_2_Dec_Rate;
         }
 
         public void PowerUp()
@@ -107,22 +154,20 @@ namespace Alex.Carvalho
         #endregion
 
         #region SpawningResources
-
-
         #region Player 1 Enviroment
         public void SpawnResourceP1(int WorldResourceInt)
         {
             if (WorldResourceInt == (int)ResourceType.ofType1)
             {
-                Instantiate(Raw_Res_Type_1, P1SpawnLocation.position, Quaternion.identity);
+                Instantiate(Raw_Res_Type_1, P1SpawnLocation.position + P1SpawnOffSett, Quaternion.identity);
             }
             else if (WorldResourceInt == (int)ResourceType.ofType2)
             {
-                Instantiate(Raw_Res_Type_2, P1SpawnLocation.position, Quaternion.identity);
+                Instantiate(Raw_Res_Type_2, P1SpawnLocation.position + P1SpawnOffSett, Quaternion.identity);
             }
             else if (WorldResourceInt == (int)ResourceType.ofType3)
             {
-                Instantiate(Raw_Res_Type_3, P1SpawnLocation.position, Quaternion.identity);
+                Instantiate(Raw_Res_Type_3, P1SpawnLocation.position + P1SpawnOffSett, Quaternion.identity);
             }
             else
             {
@@ -132,10 +177,79 @@ namespace Alex.Carvalho
         #endregion
 
         #region Player 2 Enviroment
-        public void SpawnResourceP2(int WorldResourceInt)
+
+        public void UpdateTypeLists()
         {
-            
+            int TempListLength = TempDisabledObject.Count;
+            int TempRandomNum = Random.Range(0, TempListLength); 
+            TempDisabledObject[TempRandomNum].SetActive(true);
+            TempDisabledObject.Clear();
         }
+
+        public void SpawnResourceP2(int WorldResourceInt, Transform _transform)
+        {
+            if(WorldResourceInt == (int)ResourceType.ofType1)
+            {                
+                for (int i = 0; i < Type1ListSize; i++)
+                {
+                    if(Type1ActiveResource[i].transform.position != _transform.position)
+                    {
+                        if(Type1ActiveResource[i].activeInHierarchy == false)
+                        {
+                            TempDisabledObject.Add(Type1ActiveResource[i]);
+                        }
+                        
+                    }
+
+                    if(i == Type1ListSize - 1)
+                    {
+                        
+                        UpdateTypeLists();
+                    }
+                }
+            }
+            else if(WorldResourceInt == (int)ResourceType.ofType2)
+            {
+                 for (int i = 0; i < Type2ListSize; i++)
+                {
+                    if(Type2ActiveResource[i].transform.position != _transform.position)
+                    {
+                        if(Type2ActiveResource[i].activeInHierarchy == false)
+                        {
+                            TempDisabledObject.Add(Type2ActiveResource[i]);
+                        }
+                        
+                    }
+
+                    if(i == Type2ListSize - 1)
+                    {
+                        
+                        UpdateTypeLists();
+                    }
+                }
+            }
+            else if(WorldResourceInt == (int)ResourceType.ofType3)
+            {
+                for (int i = 0; i < Type3ListSize; i++)
+                {
+                    if (Type3ActiveResource[i].transform.position != _transform.position)
+                    {
+                        if (Type3ActiveResource[i].activeInHierarchy == false)
+                        {
+                            TempDisabledObject.Add(Type3ActiveResource[i]);
+                        }
+
+                    }
+
+                    if (i == Type3ListSize - 1)
+                    {
+
+                        UpdateTypeLists();
+                    }
+                }
+            }
+        }
+
 
         #endregion
         #endregion

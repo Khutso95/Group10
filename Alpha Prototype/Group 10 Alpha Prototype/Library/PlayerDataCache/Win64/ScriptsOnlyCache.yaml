@@ -6,20 +6,22 @@ ScriptsOnlyBuild:
     - Alex.Carvalho.Beta_Script_Crafting
     - Alex.Carvalho.Beta_Script_GameManager
     - Alex.Carvalho.Beta_Script_P1_Collision
+    - Alex.Carvalho.Beta_Script_P2_Collision
+    - Alex.Carvalho.Beta_Script_P2_Movment
     - Alex.Carvalho.Beta_Script_Raw_Reasource
     - Alex.Carvalho.Beta_Script_Refined_Output
     - Alex.Carvalho.Beta_Script_Refined_Reasource
-    - Alex.Carvalho.Player_Movement_Script
-    - Alex.Carvalho.Script_Crystal_Functions
-    - Alex.Carvalho.Script_GM_RM
-    - Alex.Carvalho.Script_P1_Reasource_Entity
-    - Alex.Carvalho.Script_Player_1_Collision
+    - Alex.Carvalho.Beta_Script_World_Resource
     - Alex.Carvalho.Script_Player_1_Movement
+    - CameraLock
+    - DestroyProjectile
+    - PlayerCtrl
+    - Script_Bens_Shoot
     Cinemachine.dll:
-    - Cinemachine.Cinemachine3rdPersonFollow
     - Cinemachine.CinemachineBrain
     - Cinemachine.CinemachineComposer
     - Cinemachine.CinemachinePipeline
+    - Cinemachine.CinemachineTransposer
     - Cinemachine.CinemachineVirtualCamera
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
@@ -38,9 +40,8 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
-    - UnityEngine.UI.Text
   sceneClasses:
-    Assets/Scenes/GameScene.unity:
+    Assets/Scenes/BetaScene.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -61,6 +62,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 49
       Script: {instanceID: 0}
+    - Class: 54
+      Script: {instanceID: 0}
     - Class: 64
       Script: {instanceID: 0}
     - Class: 65
@@ -72,76 +75,86 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11724}
+      Script: {instanceID: 11798}
     - Class: 114
-      Script: {instanceID: 11748}
+      Script: {instanceID: 11900}
     - Class: 114
-      Script: {instanceID: 11952}
+      Script: {instanceID: 12044}
     - Class: 114
-      Script: {instanceID: 12004}
-    - Class: 114
-      Script: {instanceID: 12178}
-    - Class: 114
-      Script: {instanceID: 12324}
-    - Class: 114
-      Script: {instanceID: 12432}
-    - Class: 114
-      Script: {instanceID: 12468}
+      Script: {instanceID: 12056}
     - Class: 114
       Script: {instanceID: 12484}
     - Class: 114
-      Script: {instanceID: 12512}
+      Script: {instanceID: 12504}
     - Class: 114
-      Script: {instanceID: 12536}
+      Script: {instanceID: 12522}
     - Class: 114
-      Script: {instanceID: 12796}
+      Script: {instanceID: 12538}
     - Class: 114
-      Script: {instanceID: 12902}
+      Script: {instanceID: 12554}
     - Class: 114
-      Script: {instanceID: 13138}
+      Script: {instanceID: 12568}
     - Class: 114
-      Script: {instanceID: 13158}
+      Script: {instanceID: 12592}
     - Class: 114
-      Script: {instanceID: 13326}
+      Script: {instanceID: 12760}
     - Class: 114
-      Script: {instanceID: 13344}
+      Script: {instanceID: 12854}
     - Class: 114
-      Script: {instanceID: 13350}
+      Script: {instanceID: 12892}
+    - Class: 114
+      Script: {instanceID: 12960}
+    - Class: 114
+      Script: {instanceID: 13236}
+    - Class: 114
+      Script: {instanceID: 13304}
+    - Class: 114
+      Script: {instanceID: 13382}
+    - Class: 114
+      Script: {instanceID: 13386}
     - Class: 114
       Script: {instanceID: 13404}
     - Class: 114
-      Script: {instanceID: 13556}
+      Script: {instanceID: 13410}
     - Class: 114
-      Script: {instanceID: 13630}
+      Script: {instanceID: 13464}
     - Class: 114
-      Script: {instanceID: 13678}
+      Script: {instanceID: 13530}
     - Class: 114
-      Script: {instanceID: 13860}
+      Script: {instanceID: 13636}
     - Class: 114
-      Script: {instanceID: 13876}
+      Script: {instanceID: 13692}
     - Class: 114
-      Script: {instanceID: 13878}
+      Script: {instanceID: 13740}
     - Class: 114
-      Script: {instanceID: 14078}
+      Script: {instanceID: 13922}
     - Class: 114
-      Script: {instanceID: 14106}
+      Script: {instanceID: 13940}
     - Class: 114
-      Script: {instanceID: 23956}
+      Script: {instanceID: 14140}
     - Class: 114
-      Script: {instanceID: 29266}
+      Script: {instanceID: 14168}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
       Script: {instanceID: 0}
+    - Class: 135
+      Script: {instanceID: 0}
     - Class: 136
       Script: {instanceID: 0}
     - Class: 143
+      Script: {instanceID: 0}
+    - Class: 154
+      Script: {instanceID: 0}
+    - Class: 156
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
       Script: {instanceID: 0}
     - Class: 213
+      Script: {instanceID: 0}
+    - Class: 218
       Script: {instanceID: 0}
     - Class: 222
       Script: {instanceID: 0}
@@ -150,12 +163,6 @@ ScriptsOnlyBuild:
     - Class: 224
       Script: {instanceID: 0}
   scriptHashData:
-  - hash:
-      serializedVersion: 2
-      Hash: cc4274b586df3c02688bac01b88bd16c
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.EventSystems
-    className: EventSystem
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -192,6 +199,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_Dropdown
+  - hash:
+      serializedVersion: 2
+      Hash: 28e8172243671629eebaa9ac2210574b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: Alex.Carvalho
+    className: Beta_Script_P2_Movment
   - hash:
       serializedVersion: 2
       Hash: a2113831d3323f931007e1b3812dc814
@@ -440,6 +453,12 @@ ScriptsOnlyBuild:
     className: Script_Bens_RotateReasources
   - hash:
       serializedVersion: 2
+      Hash: f6f7ab4d3c2281a01b1382cd58a4ec2b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: Alex.Carvalho
+    className: Beta_Script_GameManager
+  - hash:
+      serializedVersion: 2
       Hash: fd55cd516f4cc49658e8b86f7cca784d
     assemblyName: Assembly-CSharp.dll
     namespaceName: Alex.Carvalho
@@ -450,6 +469,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: Alex.Carvalho
     className: Beta_Script_Crafting
+  - hash:
+      serializedVersion: 2
+      Hash: cc4274b586df3c02688bac01b88bd16c
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.EventSystems
+    className: EventSystem
   - hash:
       serializedVersion: 2
       Hash: 0fb27be807aa299702f28ad0bcad1f46
@@ -498,6 +523,12 @@ ScriptsOnlyBuild:
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
     className: CinemachinePOV
+  - hash:
+      serializedVersion: 2
+      Hash: 8e81190ff52012de416e712b0bc45f73
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: Alex.Carvalho
+    className: Beta_Script_Refined_Output
   - hash:
       serializedVersion: 2
       Hash: 2ce2187bbae6f802011f568630bd3d1f
@@ -680,6 +711,12 @@ ScriptsOnlyBuild:
     className: HorizontalLayoutGroup
   - hash:
       serializedVersion: 2
+      Hash: 88612596a5f89f9861ae73a5e3c96e07
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: Alex.Carvalho
+    className: Beta_Script_World_Resource
+  - hash:
+      serializedVersion: 2
       Hash: 344a8c2e106a0a4e098e91a52e0af063
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -740,7 +777,7 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
-      Hash: 5d8ce69967f2f3a54e34228e0b695bfe
+      Hash: 14158b94d94dabef2ffcb25f55c4f603
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Script_Bens_Shoot
@@ -774,6 +811,12 @@ ScriptsOnlyBuild:
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
     className: CinemachineImpulseSource
+  - hash:
+      serializedVersion: 2
+      Hash: f3d522e261149ab768bf837b09c9a507
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: Alex.Carvalho
+    className: Beta_Script_P2_Collision
   - hash:
       serializedVersion: 2
       Hash: 760787567e1b60d64a3e421ab83ee14a
@@ -1026,20 +1069,8 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: Alex.Carvalho
-    className: Beta_Script_GameManager
-  - hash:
-      serializedVersion: 2
-      Hash: 8e81190ff52012de416e712b0bc45f73
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: Alex.Carvalho
-    className: Beta_Script_Refined_Output
   platform: 19
   scenePathNames:
-  - Assets/Scenes/GameScene.unity
-  playerPath: D:/BuildFolders/3rd Year/Semester 2/Final Assignment/Group 10 Beta/P1
-    Systems are almost Complete/Group 10 Alpha Prototype.exe
+  - Assets/Scenes/BetaScene.unity
+  playerPath: D:/BuildFolders/3rd Year/Semester 2/Final Assignment/Group 10 Beta/Core
+    system in place/Group 10 Alpha Prototype.exe
