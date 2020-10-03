@@ -23,8 +23,9 @@ namespace Alex.Carvalho
         {
             var EnumValue = other.GetComponent<Beta_Script_World_Resource>()._worldResource;
             GameManger.GetComponent<Beta_Script_GameManager>().SpawnResourceP1((int)EnumValue);
-            GameManger.GetComponent<Beta_Script_GameManager>().SpawnResourceP2((int)EnumValue);
-            Destroy(other.gameObject);
+            GameManger.GetComponent<Beta_Script_GameManager>().SpawnResourceP2((int)EnumValue, other.transform);
+            other.gameObject.SetActive(false);
+            
         }
     }
 }

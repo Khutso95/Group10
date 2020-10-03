@@ -35,7 +35,7 @@ namespace Alex.Carvalho
         {
             CheckRoom();
 
-            if (Input.GetKey(KeyCode.C))
+            if (Input.GetKey(KeyCode.R))
             {
                 GrabHold = true;
             }

@@ -26,20 +26,21 @@ namespace Alex.Carvalho
         public Vector3 _velocityUp;
         public Vector3 _RayCastOffset;
 
-       // public GameObject GM;
+       public GameObject GameManager;
 
         private void Start()
         {
             _mover = GetComponent<CharacterController>();
+            GameManager = GameObject.FindGameObjectWithTag("GameController");
         }
 
         private void FixedUpdate()
         {
-            /* if (GM.GetComponent<Alex.Carvalho.Script_GM_RM>().P2CanMove)
+            if (GameManager.GetComponent<Beta_Script_GameManager>().CanMove)
              {
                  PlayerMovement();
-             } */
-            PlayerMovement();
+             } 
+            //PlayerMovement();
             CalculateGround();
         }
 
@@ -54,7 +55,8 @@ namespace Alex.Carvalho
 
             if (_vertical != 0 || _horizontal != 0)
             {
-               // GM.GetComponent<Alex.Carvalho.Script_GM_RM>().isMoving();
+
+                GameManager.GetComponent<Beta_Script_GameManager>().DecreaseFuel();
             }
 
 
