@@ -885,6 +885,36 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &345881479
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 345881480}
+  m_Layer: 0
+  m_Name: Temp Object
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &345881480
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 345881479}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 596.0729, y: 72.05755, z: 482.45282}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &504630569
 GameObject:
   m_ObjectHideFlags: 0
@@ -1245,6 +1275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerController: {fileID: 622984645}
   PlayerSpeed: 10
+  RotationSpeed: 0
 --- !u!143 &622984645
 CharacterController:
   m_ObjectHideFlags: 0
@@ -2329,9 +2360,18 @@ MonoBehaviour:
   Cell_2_Amount: 0
   Cell_3: {fileID: 1048501198}
   Cell_3_Amount: 0
+  P2CanShoot: 0
+  P2CanMove: 0
   ResType_1: 0
+  ResType_1_Max: 0
+  ResType_1_DecreaseRate: 0
   ResType_2: 0
-  RestType_3: 0
+  ResType_2_Max: 0
+  ResType_3: 0
+  ResType_3_Max: 0
+  Res_1_Image: {fileID: 0}
+  Res_2_Image: {fileID: 0}
+  Res_3_Image: {fileID: 0}
   ResType_1_Prefab: {fileID: 6148310307004081253, guid: a1306659ed334e44d84fc67d531dc843,
     type: 3}
   ResType_2_Prefab: {fileID: 5393173963516711435, guid: 59b34c7899ba71a48877096a408a5e3b,
