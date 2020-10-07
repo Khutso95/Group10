@@ -15,9 +15,9 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_FogColor: {r: 0.6037736, g: 0.46182412, b: 0.19024561, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.001
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 1277d2d5356a17f41abf930efe0c9534, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -3730,13 +3730,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 480167134}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.798249, y: -0.25752616, z: -0.025848253, w: 0.5438848}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 58.759, y: -141.706, z: -122.118}
 --- !u!1 &481099828
 GameObject:
   m_ObjectHideFlags: 0
@@ -14286,7 +14286,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1250984506}
-  m_LocalRotation: {x: 0.000047970603, y: 0.999615, z: -0.02769276, w: 0.0017315765}
+  m_LocalRotation: {x: 0.000038364986, y: 0.99961555, z: -0.027692772, w: 0.0013848462}
   m_LocalPosition: {x: 719, y: 13, z: 1264.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -14938,7 +14938,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1315388166}
-  m_LocalRotation: {x: 0.000047970603, y: 0.999615, z: -0.02769276, w: 0.0017315765}
+  m_LocalRotation: {x: 0.000038364986, y: 0.99961555, z: -0.027692772, w: 0.0013848462}
   m_LocalPosition: {x: 719, y: 13, z: 1264.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -22355,6 +22355,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 62fd39be81432a94a8929085ef9c0d6a, type: 2}
+    - target: {fileID: 7446106340768381648, guid: df62f14cbefcb2a4ca0de59cd6b7016c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.092
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df62f14cbefcb2a4ca0de59cd6b7016c, type: 3}
 --- !u!4 &1772605951 stripped
