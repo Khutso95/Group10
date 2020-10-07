@@ -14,5 +14,14 @@ namespace Alex.Carvalho
             OfType3 = 2
         }
         public OutputType _outputType;
+
+        public enum UpgradeType
+        {
+            notUpgrad = 0,
+            SpeedUpgrade = 1,
+            DamageUpgrade = 2,
+            Repair = 3
+        }
+        public UpgradeType _upgradeType;
     }
 }

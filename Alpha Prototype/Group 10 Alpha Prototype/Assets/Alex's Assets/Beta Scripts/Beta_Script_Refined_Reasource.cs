@@ -180,7 +180,13 @@ namespace Alex.Carvalho
                         GameManager.GetComponent<Beta_Script_GameManager>().IncreaseAmmo();
                         break;
                     case RefinedResourceType.Type_3:  //Upgrade 
-                        GameManager.GetComponent<Beta_Script_GameManager>().PowerUp();
+                        RaycastHit hit;
+                        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, 5))
+                        {
+                            var UpgradeType = hit.transform.gameObject.GetComponent<Beta_Script_Refined_Output>()._upgradeType;
+                            GameManager.GetComponent<Beta_Script_GameManager>().PowerUp((int)UpgradeType);
+                        }
+                          
                         break;
 
                 }

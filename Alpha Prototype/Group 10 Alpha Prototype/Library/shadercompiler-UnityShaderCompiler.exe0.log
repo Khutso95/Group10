@@ -1,2 +1,6 @@
-Base path: 'D:/Z Exam Dap Z/2020.1.3f1/Editor/Data', plugins path ''
+<<<<<<< HEAD
+Base path: 'C:/Program Files/Unity/Hub/Editor/2020.1.3f1/Editor/Data', plugins path 'C:/Program Files/Unity/Hub/Editor/2020.1.3f1/Editor/Data/PlaybackEngines'
+=======
+Base path: 'C:/Program Files/Unity/2020.1.3f1/Editor/Data', plugins path ''
+>>>>>>> b580acf0b3623c656dded318fcf7693596d25d0e
 Cmd: initializeCompiler

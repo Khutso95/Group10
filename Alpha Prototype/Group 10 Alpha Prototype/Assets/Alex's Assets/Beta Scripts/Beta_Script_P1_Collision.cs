@@ -28,13 +28,17 @@ namespace Alex.Carvalho
         public string CenterRoom;
         public string EngineRoom;
         public string UpgradeRoom;
+
+        //Map variables
+        public string MapName;
+        public GameObject MiniMap;
        
         #endregion
 
         void FixedUpdate()
         {
             CheckRoom();
-
+            MapInteration();
             if (Input.GetKey(KeyCode.R))
             {
                 GrabHold = true;
@@ -94,6 +98,23 @@ namespace Alex.Carvalho
                 {
                     return;
                 }
+            }
+        }
+
+        public void MapInteration()
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, 2))
+            {
+                if(hit.transform.name == MapName && Input.GetKey(KeyCode.T))
+                {
+                    MiniMap.SetActive(true);
+                }
+                else
+                {
+                    MiniMap.SetActive(false);
+                }
+                
             }
         }
     }

@@ -14,6 +14,8 @@ namespace Alex.Carvalho
 
         //New Variables
         public float _playerSpeed;
+        public float _playerSpeed_Normal;
+        public float _playerSpeed_Upgrade;
         public float _playerTurnSpeed;
 
         public float _hoverHight;
@@ -32,6 +34,7 @@ namespace Alex.Carvalho
         {
             _mover = GetComponent<CharacterController>();
             GameManager = GameObject.FindGameObjectWithTag("GameController");
+            _playerSpeed = _playerSpeed_Normal;
         }
 
         private void FixedUpdate()
@@ -60,6 +63,19 @@ namespace Alex.Carvalho
             }
 
 
+        }
+
+        public void CheckForUpgrade()
+        {
+            if (GameManager.GetComponent<Beta_Script_GameManager>().UpgradedSpeed)
+            {
+                _playerSpeed = _playerSpeed_Upgrade;
+            }
+            else
+            {
+                _playerSpeed = _playerSpeed_Normal;
+            }
+          
         }
 
 

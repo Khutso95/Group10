@@ -60,15 +60,28 @@ namespace Alex.Carvalho
         public bool CanMove;
         #endregion
 
+        #region Upgrade Variables
+        /*
+        public float NormalSpeed;
+        public float UpgradeSpeed;
+        public float NormalDamage;
+        public float UpgradeDamge;
+        public float HealRate; */
+        public bool UpgradedSpeed;
+        public bool UpgradedDamage;
+        private float _ResetTimer;
+        #endregion
+
         #region Ui Elements
         public Image P2_Fuel_Bar;
         public Image P2_Ammo_Bar;
+        public Image Health_Bar;
         #endregion
 
      
         void Start()
         {
-          
+            _ResetTimer = 1f;
         }
 
  
@@ -92,6 +105,10 @@ namespace Alex.Carvalho
                 Type_2_Res = Type_2_Res_Max;
             }
 
+            if(Type_3_Res >= Type_3_Res_Max)
+            {
+                Type_3_Res = Type_3_Res_Max;
+            }
             if(Type_1_Res <= 0)
             {
                 Type_1_Res = 0;
@@ -101,7 +118,11 @@ namespace Alex.Carvalho
             {
                 Type_2_Res = 0;
             }
-
+            
+            if(Type_3_Res <= 0)
+            {
+                Type_3_Res = 0;
+            }
         }
 
         public void CheckResources()
@@ -126,6 +147,16 @@ namespace Alex.Carvalho
 
         }
 
+        public void CheckUpgradeSense()
+        {
+            _ResetTimer -= Time.deltaTime;
+            if(_ResetTimer <= 0)
+            {
+                UpgradedSpeed = false;
+                UpgradedDamage = false;
+                _ResetTimer = 1f;
+            }
+        }
 
         public void IncreaseFuel()
         {
@@ -147,9 +178,29 @@ namespace Alex.Carvalho
             Type_2_Res -= Type_2_Dec_Rate;
         }
 
-        public void PowerUp()
+        public void DecreaseHealth()
         {
-            Debug.Log("Power Up");
+            Type_3_Res -= Type_3_Dec_Rate;
+        }
+
+        public void PowerUp(int upgradeType)
+        {
+
+            if(upgradeType == 1)
+            {
+                UpgradedSpeed = true;
+               
+            }
+            else if (upgradeType == 2)
+            {
+                UpgradedDamage = true;
+               
+            }
+            else if (upgradeType == 3)
+            {
+                Type_3_Res += Type_3_Inc_Rate * Time.deltaTime;
+            }
+            
         }
         #endregion
 
@@ -259,6 +310,7 @@ namespace Alex.Carvalho
         {
             P2_Fuel_Bar.fillAmount = Type_1_Res / Type_1_Res_Max;
             P2_Ammo_Bar.fillAmount = Type_2_Res / Type_2_Res_Max;
+            Health_Bar.fillAmount = Type_3_Res / Type_3_Res_Max;
         }
         #endregion
     }
