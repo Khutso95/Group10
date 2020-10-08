@@ -5,12 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class Pause : MonoBehaviour
 {
+    public GameObject howtoMenu;
     public GameObject pauseMenu;
     public static bool isPause;
     // Start is called before the first frame update
     void Start()
     {
         pauseMenu.SetActive(false);
+        howtoMenu.SetActive(false);
     }
 
     // Update is called once per frame
@@ -53,6 +55,22 @@ public class Pause : MonoBehaviour
     public void quit()
     {
         Application.Quit();
+    }
+
+    public void Howto()
+    {
+        howtoMenu.SetActive(true);
+        pauseMenu.SetActive(false);
+        Time.timeScale = 0f;
+        
+    }
+
+    public void Back()
+    {
+        howtoMenu.SetActive(false);
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0f;
+       
     }
 
 
