@@ -22,6 +22,7 @@ TagManager:
   - RefinedResource
   - UseResource
   - DestroyTag
+  - Road
   layers:
   - Default
   - TransparentFX

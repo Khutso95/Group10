@@ -30,6 +30,9 @@ namespace Alex.Carvalho
 
        public GameObject GameManager;
 
+
+        
+
         private void Start()
         {
             _mover = GetComponent<CharacterController>();
@@ -42,6 +45,7 @@ namespace Alex.Carvalho
             if (GameManager.GetComponent<Beta_Script_GameManager>().CanMove)
              {
                  PlayerMovement();
+
              } 
             //PlayerMovement();
             CalculateGround();
@@ -117,4 +121,5 @@ namespace Alex.Carvalho
 
         }
     }
+ 
 }
