@@ -22,6 +22,12 @@ TagManager:
   - RefinedResource
   - UseResource
   - DestroyTag
+<<<<<<< HEAD
+  - Obstacle
+  - Projectile
+=======
+  - Road
+>>>>>>> 3612c9a45054a620a5a30966a55f0c28823f20bc
   layers:
   - Default
   - TransparentFX

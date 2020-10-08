@@ -7,6 +7,8 @@ namespace Alex.Carvalho
     public class Beta_Script_P2_Collision : MonoBehaviour
     {
         public GameObject GameManger;
+        public AudioClip MetalicSound;
+        public AudioClip MetalicSound2;
 
         void Start()
         {
@@ -25,7 +27,15 @@ namespace Alex.Carvalho
             GameManger.GetComponent<Beta_Script_GameManager>().SpawnResourceP1((int)EnumValue);
             GameManger.GetComponent<Beta_Script_GameManager>().SpawnResourceP2((int)EnumValue, other.transform);
             other.gameObject.SetActive(false);
+
+            AudioManager.Instance.PlayEffects(MetalicSound,0.5f);
             
+        }
+
+        void OnControllerColliderHit(ControllerColliderHit hit)
+        {
+            hit.collider.tag = "Road";
+            //AudioManager.Instance.PlayEffects(MetalicSound2, 0.05f);
         }
     }
 }

@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 2735706632902526413}
   m_Layer: 0
   m_Name: World Resource 2 (Ammo)
-  m_TagString: Untagged
+  m_TagString: BaseReasource
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

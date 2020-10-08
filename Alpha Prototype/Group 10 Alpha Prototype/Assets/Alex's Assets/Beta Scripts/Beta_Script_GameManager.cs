@@ -42,7 +42,7 @@ namespace Alex.Carvalho
         //The resources affected 
         public float Type_1_Res;  //Fuel
         public float Type_2_Res;  //Ammo
-        public float Type_3_Res;
+        public float Type_3_Res;  //Health
         //The resources Max
         public float Type_1_Res_Max;
         public float Type_2_Res_Max;
@@ -84,6 +84,7 @@ namespace Alex.Carvalho
             CapResources();
             UpdateP2UI();
             CheckResources();
+            CheckUpgradeSense();
         }
 
         #region Resource Methods
@@ -172,9 +173,21 @@ namespace Alex.Carvalho
             Type_2_Res -= Type_2_Dec_Rate;
         }
 
-        public void DecreaseHealth()
+        public void DecreaseHealth(int EnumValue)
         {
-            Type_3_Res -= Type_3_Dec_Rate;
+           
+            if(EnumValue == 1)
+            {
+                Type_3_Res -= Type_3_Dec_Rate;
+            }
+            else if(EnumValue == 2)
+            {
+                Type_3_Res -= Type_3_Dec_Rate * 2;
+            }
+            else
+            {
+                Debug.Log("DecreaseHealth EnumValue was not 1 or 2");
+            }
         }
 
         public void PowerUp(int upgradeType)
