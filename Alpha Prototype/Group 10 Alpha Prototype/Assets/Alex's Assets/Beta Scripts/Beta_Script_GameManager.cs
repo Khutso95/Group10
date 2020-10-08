@@ -61,12 +61,6 @@ namespace Alex.Carvalho
         #endregion
 
         #region Upgrade Variables
-        /*
-        public float NormalSpeed;
-        public float UpgradeSpeed;
-        public float NormalDamage;
-        public float UpgradeDamge;
-        public float HealRate; */
         public bool UpgradedSpeed;
         public bool UpgradedDamage;
         private float _ResetTimer;
